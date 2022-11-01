@@ -15,12 +15,14 @@ public class Settings{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long settingsId;
     private String languageName;
+    private String country;
 
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Settings( String languageName) {
+    public Settings( String languageName, String country) {
         this.languageName = languageName;
+        this.country = country;
     }
 }
