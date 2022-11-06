@@ -1,5 +1,6 @@
 package com.leasing.backend.domains.leasing.domain.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.Date;
 @Table(name = "loans")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Loan {
 
     @Id
@@ -38,23 +40,4 @@ public class Loan {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable=false)
     private User user;
-
-    public Loan(Date loanIssueDate, Float salePrice, int loanTime, int paymentFrequency, Float buyBackPercentage, Currency currency, Float notarialCost, Float registrationCost, Float appraisal, Float studyCommission, Float activationCommission, Float periodicCommission, Float riskInsurancePercentage, Float discountRateKs, Float discountRateWACC, User user) {
-        this.loanIssueDate = loanIssueDate;
-        this.salePrice = salePrice;
-        this.loanTime = loanTime;
-        this.paymentFrequency = paymentFrequency;
-        this.buyBackPercentage = buyBackPercentage;
-        this.currency = currency;
-        this.notarialCost = notarialCost;
-        this.registrationCost = registrationCost;
-        this.appraisal = appraisal;
-        this.studyCommission = studyCommission;
-        this.activationCommission = activationCommission;
-        this.periodicCommission = periodicCommission;
-        this.riskInsurancePercentage = riskInsurancePercentage;
-        this.discountRateKs = discountRateKs;
-        this.discountRateWACC = discountRateWACC;
-        this.user = user;
-    }
 }
