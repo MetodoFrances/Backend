@@ -37,9 +37,9 @@ public class Loan {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable=false)
-    private User user;
+    private Userb user;
 
-    public Loan(Date loanIssueDate, Float salePrice, int loanTime, int paymentFrequency, Float buyBackPercentage, Currency currency, Float notarialCost, Float registrationCost, Float appraisal, Float studyCommission, Float activationCommission, Float periodicCommission, Float riskInsurancePercentage, Float discountRateKs, Float discountRateWACC, User user) {
+    public Loan(Date loanIssueDate, Float salePrice, int loanTime, int paymentFrequency, Float buyBackPercentage, Currency currency, Float notarialCost, Float registrationCost, Float appraisal, Float studyCommission, Float activationCommission, Float periodicCommission, Float riskInsurancePercentage, Float discountRateKs, Float discountRateWACC, Userb user) {
         this.loanIssueDate = loanIssueDate;
         this.salePrice = salePrice;
         this.loanTime = loanTime;

@@ -18,7 +18,7 @@ public class Settings{
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private Userb user;
 
     public Settings( String languageName) {
         this.languageName = languageName;
