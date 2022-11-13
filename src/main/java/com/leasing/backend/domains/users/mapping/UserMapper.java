@@ -1,9 +1,9 @@
-package com.leasing.backend.users.mapping;
+package com.leasing.backend.domains.users.mapping;
 
 import com.leasing.backend.shared.mapping.EnhancedModelMapper;
-import com.leasing.backend.users.domain.entities.User;
-import com.leasing.backend.users.resource.UserRequestResource;
-import com.leasing.backend.users.resource.UserResource;
+import com.leasing.backend.domains.users.domain.entities.User;
+import com.leasing.backend.domains.users.resource.UserRequestResource;
+import com.leasing.backend.domains.users.resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -24,7 +24,14 @@ public class UserMapper implements Serializable {
         return new PageImpl<>(mapper.mapList(modelList, UserResource.class), pageable, modelList.size());
     }
 
-    public User toModel(UserRequestResource resource) {
+    public User toModel(UserResource resource) {
+        mapper.getConfiguration().setAmbiguityIgnored(true);
         return mapper.map(resource, User.class);
     }
+
+    public User toModelE(UserRequestResource resource) {
+        mapper.getConfiguration().setAmbiguityIgnored(true);
+        return mapper.map(resource, User.class);
+    }
+
 }

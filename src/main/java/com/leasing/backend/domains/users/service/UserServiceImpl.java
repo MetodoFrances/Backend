@@ -1,10 +1,11 @@
-package com.leasing.backend.users.service;
+package com.leasing.backend.domains.users.service;
 
 import com.leasing.backend.shared.exception.ResourceNotFoundException;
 import com.leasing.backend.shared.exception.ResourceValidationException;
-import com.leasing.backend.users.domain.entities.User;
-import com.leasing.backend.users.domain.persistence.UserRepository;
-import com.leasing.backend.users.domain.service.UserService;
+import com.leasing.backend.domains.users.domain.entities.User;
+import com.leasing.backend.domains.users.domain.persistence.UserRepository;
+import com.leasing.backend.domains.users.domain.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import javax.validation.Validator;
 import java.util.List;
 import java.util.Set;
 
+@Slf4j
 @Service
 public class UserServiceImpl implements UserService {
     private static final String ENTITY = "users";

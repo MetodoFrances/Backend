@@ -1,4 +1,4 @@
-package com.leasing.backend.users.resource;
+package com.leasing.backend.domains.users.resource;
 
 import lombok.*;
 

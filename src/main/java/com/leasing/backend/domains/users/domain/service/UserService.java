@@ -1,6 +1,6 @@
-package com.leasing.backend.users.domain.service;
+package com.leasing.backend.domains.users.domain.service;
 
-import com.leasing.backend.users.domain.entities.User;
+import com.leasing.backend.domains.users.domain.entities.User;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;

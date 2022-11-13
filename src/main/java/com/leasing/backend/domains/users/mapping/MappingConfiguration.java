@@ -1,9 +1,9 @@
-package com.leasing.backend.users.mapping;
+package com.leasing.backend.domains.users.mapping;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration("userMappingConfiguration")
+@Configuration("UserMappingConfiguration")
 public class MappingConfiguration{
     @Bean
     public UserMapper userMapper() {

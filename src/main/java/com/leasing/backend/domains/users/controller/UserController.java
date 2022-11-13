@@ -1,9 +1,10 @@
-package com.leasing.backend.users.controller;
+package com.leasing.backend.domains.users.controller;
 
-import com.leasing.backend.users.domain.service.UserService;
-import com.leasing.backend.users.mapping.UserMapper;
-import com.leasing.backend.users.resource.UserRequestResource;
-import com.leasing.backend.users.resource.UserResource;
+import com.leasing.backend.domains.users.domain.service.UserService;
+import com.leasing.backend.domains.users.mapping.UserMapper;
+import com.leasing.backend.domains.users.resource.UserRequestResource;
+import com.leasing.backend.domains.users.resource.UserResource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
@@ -30,14 +32,14 @@ public class UserController {
     }
     @CrossOrigin(origins = "*")
     @PostMapping
-    public ResponseEntity<UserResource> createUser(@RequestBody UserRequestResource resource) {
-        return new ResponseEntity<>(mapper.toResource(userService.create(
-                mapper.toModel(resource))), HttpStatus.CREATED);
+    public ResponseEntity<UserResource> createUser(@RequestBody UserResource resource) {
+        return new ResponseEntity<>(this.mapper.toResource(this.userService.create(
+                this.mapper.toModel(resource))), HttpStatus.CREATED);
     }
     @CrossOrigin(origins = "*")
     @PutMapping("{user_id}")
     public UserResource updateUser(@PathVariable String user_id, @RequestBody UserRequestResource resource) {
-        return mapper.toResource(userService.update(user_id, mapper.toModel(resource)));
+        return mapper.toResource(userService.update(user_id, mapper.toModelE(resource)));
     }
     @CrossOrigin(origins = "*")
     @DeleteMapping("{user_id}")
