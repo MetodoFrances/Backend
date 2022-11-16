@@ -1,60 +1,83 @@
 package com.leasing.backend.domains.leasing.domain.entities;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
+@Slf4j
+@Getter
+@Setter
+@With
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "loans")
-@Data
-@NoArgsConstructor
 public class Loan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long loanId;
+    private Long id;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "loan_issue_date")
     private Date loanIssueDate;
-    private Float salePrice;
+
+    @Column(name = "sale_price")
+    private double salePrice;
+
+    @Column(name = "loan_time")
     private int loanTime;
+
+    @Column(name = "payment_frecuency")
     private int paymentFrequency;
-    private Float buyBackPercentage;
+
+    @Column(name = "buyback_percentage")
+    private double buyBackPercentage;
 
     @ManyToOne
-    @JoinColumn(name = "currency_id", nullable=false)
+    @JoinColumn(name = "currency_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ToString.Exclude
+    @JsonDeserialize
     private Currency currency;
 
-    private Float notarialCost;
-    private Float registrationCost;
-    private Float appraisal;
-    private Float studyCommission;
-    private Float activationCommission;
-    private Float periodicCommission;
-    private Float riskInsurancePercentage;
-    private Float discountRateKs;
-    private Float discountRateWACC;
+    @Column(name = "notarial_cost")
+    private double notarialCost;
+
+    @Column(name = "registration_cost")
+    private double registrationCost;
+
+    @Column(name = "appraisal")
+    private double appraisal;
+
+    @Column(name = "study_commission")
+    private double studyCommission;
+
+    @Column(name = "activation_commission")
+    private double activationCommission;
+
+    @Column(name = "periodic_commission")
+    private double periodicCommission;
+
+    @Column(name = "risk_insurance_percentage")
+    private double riskInsurancePercentage;
+
+    @Column(name = "discount_rate_Ks")
+    private double discountRateKs;
+
+    @Column(name = "discount_rate_WACC")
+    private double discountRateWACC;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable=false)
+    @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ToString.Exclude
+    @JsonDeserialize
     private User user;
-
-    public Loan(Date loanIssueDate, Float salePrice, int loanTime, int paymentFrequency, Float buyBackPercentage, Currency currency, Float notarialCost, Float registrationCost, Float appraisal, Float studyCommission, Float activationCommission, Float periodicCommission, Float riskInsurancePercentage, Float discountRateKs, Float discountRateWACC, User user) {
-        this.loanIssueDate = loanIssueDate;
-        this.salePrice = salePrice;
-        this.loanTime = loanTime;
-        this.paymentFrequency = paymentFrequency;
-        this.buyBackPercentage = buyBackPercentage;
-        this.currency = currency;
-        this.notarialCost = notarialCost;
-        this.registrationCost = registrationCost;
-        this.appraisal = appraisal;
-        this.studyCommission = studyCommission;
-        this.activationCommission = activationCommission;
-        this.periodicCommission = periodicCommission;
-        this.riskInsurancePercentage = riskInsurancePercentage;
-        this.discountRateKs = discountRateKs;
-        this.discountRateWACC = discountRateWACC;
-        this.user = user;
-    }
 }
