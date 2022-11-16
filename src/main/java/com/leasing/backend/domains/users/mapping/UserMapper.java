@@ -26,10 +26,19 @@ public class UserMapper implements Serializable {
 
     public User toModel(UserResource resource) {
         mapper.getConfiguration().setAmbiguityIgnored(true);
+<<<<<<< HEAD
         return mapper.map(resource, User.class);
     }
     public User toModelE(UserRequestResource resource) {
         mapper.getConfiguration().setAmbiguityIgnored(true);
+=======
+>>>>>>> 09f2fd92806be7df8c5ef6720bf9a57fb76eccfd
         return mapper.map(resource, User.class);
     }
+
+    public User toModelE(UserRequestResource resource) {
+        mapper.getConfiguration().setAmbiguityIgnored(true);
+        return mapper.map(resource, User.class);
+    }
+
 }

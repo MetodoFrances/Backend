@@ -31,8 +31,19 @@ public class UserController {
         return mapper.modelListPage(userService.getAll(), pageable);
     }
     @CrossOrigin(origins = "*")
+<<<<<<< HEAD
     @PutMapping("{user_id}")
     public UserResource updateUser(@PathVariable Long user_id, @RequestBody UserRequestResource resource) {
+=======
+    @PostMapping
+    public ResponseEntity<UserResource> createUser(@RequestBody UserResource resource) {
+        return new ResponseEntity<>(this.mapper.toResource(this.userService.create(
+                this.mapper.toModel(resource))), HttpStatus.CREATED);
+    }
+    @CrossOrigin(origins = "*")
+    @PutMapping("{user_id}")
+    public UserResource updateUser(@PathVariable String user_id, @RequestBody UserRequestResource resource) {
+>>>>>>> 09f2fd92806be7df8c5ef6720bf9a57fb76eccfd
         return mapper.toResource(userService.update(user_id, mapper.toModelE(resource)));
     }
     @CrossOrigin(origins = "*")
