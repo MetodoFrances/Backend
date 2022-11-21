@@ -6,11 +6,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 
+
 @Entity
 @Table(name = "settings")
 @Data
 @NoArgsConstructor
-public class Settings{
+public class Settings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long settingsId;
@@ -25,4 +26,5 @@ public class Settings{
         this.languageName = languageName;
         this.country = country;
     }
+
 }

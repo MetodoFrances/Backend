@@ -13,3 +13,4 @@ public class EnhancedModelMapper extends ModelMapper {
         return sourceList.stream().map(item -> this.map(item, targetClass)).collect(Collectors.toList());
     }
 }
+

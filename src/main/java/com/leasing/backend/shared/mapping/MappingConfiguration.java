@@ -1,5 +1,7 @@
 package com.leasing.backend.shared.mapping;
 
+
+import com.leasing.backend.shared.mapping.EnhancedModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,4 +13,5 @@ public class MappingConfiguration {
 
         return new EnhancedModelMapper();
     }
+
 }
