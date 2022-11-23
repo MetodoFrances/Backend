@@ -8,25 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service
-public class SettingsService{
-
-    @Autowired
-    private final SettingsRepository settingsRepository;
-
-    public SettingsService(SettingsRepository settingsRepository) {
-        this.settingsRepository = settingsRepository;
-    }
-
-    public List<Settings> findSettings(){ return settingsRepository.findSettings();}
-
-    public Settings findBySettingsId(Long id){
-        return settingsRepository.findBySettingsId(id);}
-
-    public Settings saveSettings(Settings settings){
-        settingsRepository.save(settings);
-
-        return settings;
-    }
-
+public interface SettingsService{
+    List<Settings> findSettings();
+    Settings findBySettingsId(Long id);
+    Settings saveSettings(Settings settings);
 }

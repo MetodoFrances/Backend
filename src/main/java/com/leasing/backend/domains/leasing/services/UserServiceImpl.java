@@ -18,7 +18,7 @@ import java.util.Set;
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
-    private static final String ENTITY = "loans";
+    private static final String ENTITY = "users";
 
     @Autowired
     private final UserRepository userRepository;

@@ -9,4 +9,6 @@ public class MappingConfiguration {
     public LoanMapper loanMapper() { return new LoanMapper(); }
     @Bean
     public UserMapper userMapper() { return new UserMapper(); }
+    @Bean
+    public SettingsMapper settingsMapper() { return new SettingsMapper(); }
 }

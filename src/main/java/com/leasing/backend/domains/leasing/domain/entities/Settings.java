@@ -1,30 +1,33 @@
 package com.leasing.backend.domains.leasing.domain.entities;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 
 
 
+@Slf4j
+@Getter
+@Setter
+@With
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "settings")
-@Data
-@NoArgsConstructor
 public class Settings {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long settingsId;
+    private Long id;
     private String languageName;
     private String country;
 
     @OneToOne
     @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    @JsonDeserialize
     private User user;
-
-    public Settings( String languageName, String country) {
-        this.languageName = languageName;
-        this.country = country;
-    }
 
 }

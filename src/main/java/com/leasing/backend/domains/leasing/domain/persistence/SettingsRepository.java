@@ -11,7 +11,6 @@ public interface SettingsRepository extends JpaRepository<Settings, Long> {
     @Query("SELECT s FROM Settings s")
     List<Settings> findSettings();
 
-    Settings findBySettingsId(Long id);
-
-
+    @Override
+    Settings getById(Long id);
 }
