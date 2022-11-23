@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"})
+
 @Slf4j
 @RestController
 @RequestMapping(value = "/users")
@@ -27,6 +27,7 @@ public class UserController {
         this.mapper = mapper;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public List<User> getAllUsers() {
         return this.userService.getAllUsers();

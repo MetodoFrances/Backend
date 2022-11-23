@@ -11,7 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"})
 @Slf4j
 @RestController
 @RequestMapping(value = "/login")
@@ -25,6 +24,7 @@ public class LoginController {
         this.userService = userService;
         this.mapper = mapper;
     }
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<UserResource> loginUser(@RequestBody LoginUserResource resource) {
         return new ResponseEntity<>(

@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"})
+
 @Slf4j
 @RestController
 @RequestMapping(value = "/register")
@@ -25,6 +25,7 @@ public class RegisterController {
         this.mapper = mapper;
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<UserResource> registerUser(@RequestBody RegisterUserResource resource) {
         return new ResponseEntity<>(
