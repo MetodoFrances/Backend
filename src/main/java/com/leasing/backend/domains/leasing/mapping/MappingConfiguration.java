@@ -7,4 +7,6 @@ import org.springframework.context.annotation.Configuration;
 public class MappingConfiguration {
     @Bean
     public LoanMapper loanMapper() { return new LoanMapper(); }
+    @Bean
+    public UserMapper userMapper() { return new UserMapper(); }
 }
