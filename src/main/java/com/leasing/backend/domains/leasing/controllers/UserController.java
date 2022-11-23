@@ -5,13 +5,14 @@ import com.leasing.backend.domains.leasing.domain.service.UserService;
 import com.leasing.backend.domains.leasing.mapping.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"})
 @Slf4j
 @RestController
 @RequestMapping(value = "/users")

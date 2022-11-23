@@ -15,6 +15,7 @@ public class SaveLoanResource {
     private Date loanIssueDate;
     private double salePrice;
     private int loanTime;
+    public double TEAPercentage;
     private int paymentFrequency;
     private double buyBackPercentage;
     private Currency currencyId;

@@ -12,4 +12,5 @@ public interface SettingsService{
     List<Settings> findSettings();
     Settings findBySettingsId(Long id);
     Settings saveSettings(Settings settings);
+    Settings updateSettings(Long id, Settings settings);
 }

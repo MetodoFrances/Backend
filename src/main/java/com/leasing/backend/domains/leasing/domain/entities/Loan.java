@@ -34,6 +34,9 @@ public class Loan {
     @Column(name = "loan_time")
     private int loanTime;
 
+    @Column(name = "TEA_percentage")
+    public double TEAPercentage;
+
     @Column(name = "payment_frecuency")
     private int paymentFrequency;
 

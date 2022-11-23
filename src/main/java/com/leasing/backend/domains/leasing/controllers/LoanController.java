@@ -26,10 +26,14 @@ public class LoanController {
         this.loanService = loanService;
         this.mapper = mapper;
     }
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/user_id={id}")
     public List<Loan> getByUserId(@PathVariable(value = "id") Long id) {
         return loanService.getAllByUserId(id);
     }
+
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<LoanResource> create(@RequestBody SaveLoanResource resource) {
         return new ResponseEntity<LoanResource>(

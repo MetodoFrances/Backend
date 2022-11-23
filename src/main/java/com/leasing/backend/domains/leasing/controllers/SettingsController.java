@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @Slf4j
 @RestController
 @RequestMapping("/settings")
@@ -29,13 +28,14 @@ public class SettingsController {
         this.mapper = mapper;
     }
 
-
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<Settings>> getAllSettings(){
         List<Settings> settings = settingsService.findSettings();
         return new ResponseEntity<List<Settings>>(settings,HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<SettingsResource> addSettings(@RequestBody SaveSettingsResource resource) {
         return new ResponseEntity<SettingsResource>(
@@ -48,17 +48,14 @@ public class SettingsController {
         );
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping("/{id}")
-    public ResponseEntity<Settings> updateSettings(
+    public SettingsResource updateSettings(
             @PathVariable("id") Long id,
-            @RequestBody Settings settings){
-        Settings settingsUpdated= settingsService.findBySettingsId(id);
-
-        settingsUpdated.setLanguageName(settings.getLanguageName());
-        settingsUpdated.setCountry(settings.getCountry());
-
-        return new ResponseEntity<Settings>(settingsService.saveSettings(settingsUpdated),
-                HttpStatus.OK);
+            @RequestBody SaveSettingsResource settings){
+        return mapper.toResource(
+                settingsService.updateSettings(id,mapper.toModel(settings))
+        );
     }
 
 
